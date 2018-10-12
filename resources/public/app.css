@@ -1,0 +1,31 @@
+html, body, #outer {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-variant-ligatures: contextual;
+    font-feature-settings: "calt" 1;
+}
+
+h1 {
+    color: blue;
+}
+
+#outer {
+    display: table;
+}
+
+#inner_fixed {
+    /* background-color: grey; */
+
+    display: table-row;
+}
+
+#inner_remaining {
+    /* background-color: #DDDDDD; */
+
+    display: table-row;
+}
