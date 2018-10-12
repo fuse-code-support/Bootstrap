@@ -1,5 +1,5 @@
 (page "index.html"
-      (:require [app.websocket :as rpc]))
+      (:require [fusecode.server.websocket :as rpc]))
 
 (defc random nil)
 
