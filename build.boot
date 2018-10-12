@@ -18,12 +18,14 @@
 (set-env!
  :dependencies '[[org.clojure/clojure       "1.9.0"]
                  [org.clojure/tools.cli     "0.4.1"]
+                 [org.clojure/core.async    "0.4.474"]
 
                  [coconutpalm/boot-boot     "LATEST"]
                  [clojure-watch             "LATEST"]
                  [zcaudate/hara             "2.8.7"]
                  [adzerk/boot-cljs          "2.1.4"]
                  [adzerk/boot-reload        "0.6.0"]
+                 [samestep/boot-refresh     "0.1.0"]
                  [compojure                 "1.6.1"]
                  [hoplon/hoplon             "7.2.0"]
                  [hoplon/javelin            "3.9.0"]
@@ -43,42 +45,43 @@
 
 
 (require
-  '[adzerk.boot-cljs      :refer [cljs]]
-  '[adzerk.boot-reload    :refer [reload]]
-  '[hoplon.boot-hoplon    :refer [hoplon prerender]]
-  '[pandeiro.boot-http    :refer [serve]])
+ '[adzerk.boot-cljs      :refer [cljs]]
+ '[adzerk.boot-reload    :refer [reload]]
+ '[samestep.boot-refresh :refer [refresh]]
+ '[hoplon.boot-hoplon    :refer [hoplon prerender]]
+ '[pandeiro.boot-http    :refer [serve]])
 
 
 (deftask cider "CIDER profile"
-   []
-   (require 'boot.repl)
-   (swap! @(resolve 'boot.repl/*default-dependencies*)
-          concat '[[org.clojure/tools.nrepl "0.2.13"]
-                   [cider/cider-nrepl "0.18.0"]
-                   [refactor-nrepl "2.4.0"]])
-   (swap! @(resolve 'boot.repl/*default-middleware*)
-          concat '[cider.nrepl/cider-middleware
-                   refactor-nrepl.middleware/wrap-refactor])
-   identity)
+  []
+  (require 'boot.repl)
+  (swap! @(resolve 'boot.repl/*default-dependencies*)
+         concat '[[org.clojure/tools.nrepl "0.2.13"]
+                  [cider/cider-nrepl "0.18.0"]
+                  [refactor-nrepl "2.4.0"]])
+  (swap! @(resolve 'boot.repl/*default-middleware*)
+         concat '[cider.nrepl/cider-middleware
+                  refactor-nrepl.middleware/wrap-refactor])
+  identity)
 
 
 (deftask web-dev
   "Build boot-code for local development."
   []
   (comp
-    (cider)
-    (serve
-     :port    7000
-     :handler 'boot-code.handler/app
-     ;; :init 'boot-code.strap/jetty-init
-     :reload  true
-     :httpkit true)
-     (watch)
-     (speak)
-     (hoplon)
-     (reload)
-     (repl :server true)
-     (cljs)))
+   (cider)
+   (serve
+    :port    7000
+    :handler 'fusecode.server.random/app
+    :init 'fusecode.strap/jetty-init
+    :httpkit true)
+   (watch)
+   (speak)
+   (hoplon)
+   (refresh)
+   (reload)
+   (repl :server true)
+   (cljs)))
 
 
 ;; WIP!!!
