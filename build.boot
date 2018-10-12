@@ -29,7 +29,7 @@
                  [hoplon/javelin            "3.9.0"]
 
                  [eval-soup                 "1.4.3"]
-                 [paren-soup                "2.12.3"]
+                 [paren-soup                "2.12.3"] ; Use to help bootstrap CodeMirror?
 
                  [org.clojure/clojurescript "1.10.238"]
                  [ring/ring-defaults        "0.3.2"]
