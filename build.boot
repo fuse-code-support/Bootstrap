@@ -1,12 +1,12 @@
 (def task-options
-  {:project 'coconutpalm/boot-code
+  {:project 'fusecode/bootstrap
    :version "0.1.1"
-   :project-name "boot-code"
+   :project-name "Bootstrap"
    :project-openness :open-source
 
-   :description "A programmers' editor intended to be embedded inside of build tools."
+   :description "Launch the fusecode web server and serve its minimal web SPA"
 
-   :scm-url "https://github.com/coconutpalm/boot-code"
+   :scm-url "https://github.com/fuse-code/Bootstrap.git"
 
    :test-sources "test"
    :test-resources nil})
@@ -40,29 +40,17 @@
                  [com.taoensso/sente        "1.13.1"]]
 
 
- :resource-paths #{(qualify "resources") (qualify "src/clj")}
+ :resource-paths #{(qualify "resources") (qualify "src/clj") (qualify "src/cljc")}
  :source-paths   #{(qualify "src/cljs") (qualify "src/hl")})
 
 
 (require
+ '[clj-boot.core         :refer :all]
  '[adzerk.boot-cljs      :refer [cljs]]
  '[adzerk.boot-reload    :refer [reload]]
  '[samestep.boot-refresh :refer [refresh]]
  '[hoplon.boot-hoplon    :refer [hoplon prerender]]
  '[pandeiro.boot-http    :refer [serve]])
-
-
-(deftask cider "CIDER profile"
-  []
-  (require 'boot.repl)
-  (swap! @(resolve 'boot.repl/*default-dependencies*)
-         concat '[[org.clojure/tools.nrepl "0.2.13"]
-                  [cider/cider-nrepl "0.18.0"]
-                  [refactor-nrepl "2.4.0"]])
-  (swap! @(resolve 'boot.repl/*default-middleware*)
-         concat '[cider.nrepl/cider-middleware
-                  refactor-nrepl.middleware/wrap-refactor])
-  identity)
 
 
 (deftask web-dev
