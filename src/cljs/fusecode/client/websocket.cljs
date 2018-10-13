@@ -30,17 +30,17 @@
   (.log js/console (str "Unhandled event: " id)))
 
 
-;; Wrap for logging, catching, etc.:
-(defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
-  (event-msg-handler ev-msg))
-
-
 ;; Receive a message
 (defmulti chsk-recv (fn [id ?data] id))
 
 (defmethod event-msg-handler :chsk/recv
            [{:as ev-msg :keys [?data]}]
            (chsk-recv (?data 0) (?data 1)))
+
+
+;; Wrap for logging, catching, etc.:
+(defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
+  (event-msg-handler ev-msg))
 
 
 ;; Initialization
