@@ -1,24 +1,36 @@
 (page "index.html"
-      (:require [fusecode.client.websocket :as rpc]))
-
-(defc random nil)
-
-(defmethod rpc/chsk-recv :simple/update
-  [id ran]
-  (reset! random ran))
-
-(defn get-state []
-  (rpc/chsk-send! [:simple/get-random {:resp-id :simple/update}]))
-
-
-(defn init []
-  (rpc/start!)
-  (js/setInterval get-state 1000))
-
-(init)
+      (:require
+       [javelin.core :as j :refer [cell cell=]]
+       [fusecode.client.api :as api]
+       [fusecode.ui :as ui]))
 
 (html
-  (head
-    (link :rel "stylesheet" :type "text/css" :href "css/app.css"))
-  (body
-    (h1 (text "Hello, Hoplon and Sente World! ~{random}"))))
+ (head
+  ;; Page metadata
+  (html-meta :http-equiv "Content-Type" :content "text/html; charset=UTF-8")
+  (html-meta :http-equiv "X-UA-Compatible" :content "IE=edge")
+  (html-meta :name "viewport" :content "width=device-width,initial-scale=1")
+  (html-meta :name "msapplication-tap-highlight" :content "no")
+
+  ;; Android 5 Chrome color
+  (html-meta :name "theme-color" :content "#EE6E73")
+
+  ;; Favicons - TODO: Need to actually put some icons in the images folder
+  (link :rel "apple-touch-icon-precomposed" :href "images/favicon/apple-touch-icon-152x152.png")
+  (html-meta :name "msapplication-TileColor" :content "#FFFFFF")
+  (html-meta :name "msapplication-TileImage" :content "images/favicon/mstile-144x144.png")
+  (link :rel "icon" :href "images/favicon/favicon-32x32.png" :sizes "32x32")
+
+  (link :rel "stylesheet" :href "app.css")
+  (cell= ui/css)
+  (link :href "app.css" :rel "stylesheet")
+
+  (title (cell= ui/tab-title))) ; Probably put current project name in the editor
+
+ (body
+  (div :id "outer"
+       (h1 (text "Hello, Hoplon and Sente World! ~{api/random}"))
+       (cell= ui/body))))
+
+(api/init)
+(cell= (apply ui/page-init))
