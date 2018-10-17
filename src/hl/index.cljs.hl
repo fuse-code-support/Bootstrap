@@ -29,7 +29,6 @@
 
  (body
   (div :id "outer"
-       (h1 (text "Hello, Hoplon and Sente World! ~{api/random}"))
        (cell= ui/body))))
 
 (api/init)

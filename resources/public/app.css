@@ -29,3 +29,14 @@ h1 {
 
     display: table-row;
 }
+
+.center-div {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 220px;
+    height: 220px;  
+}
