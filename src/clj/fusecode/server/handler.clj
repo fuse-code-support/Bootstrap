@@ -4,7 +4,9 @@
             [ring.middleware.defaults :as d]
             [ring.util.response :as response]
             [taoensso.sente     :as sente]
-            [taoensso.sente.server-adapters.http-kit :refer (sente-web-server-adapter)]))
+            [taoensso.sente.server-adapters.immutant :refer [get-sch-adapter]]
+            #_[fusecode.server.ring-jetty9 :refer [sente-web-server-adapter]]
+            #_[taoensso.sente.server-adapters.http-kit :refer (sente-web-server-adapter)]))
 
 
 ;;;; Server-side setup
@@ -16,7 +18,7 @@
 
 (let [{:keys [ch-recv send-fn ajax-post-fn ajax-get-or-ws-handshake-fn
               connected-uids]}
-      (sente/make-channel-socket! sente-web-server-adapter {:user-id-fn mkuid})]
+      (sente/make-channel-socket! (get-sch-adapter) {:user-id-fn mkuid})]
   (def ring-ajax-post                ajax-post-fn)
   (def ring-ajax-get-or-ws-handshake ajax-get-or-ws-handshake-fn)
   (def ch-chsk                       ch-recv) ; ChannelSocket's receive channel

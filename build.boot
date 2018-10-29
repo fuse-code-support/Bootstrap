@@ -36,7 +36,7 @@
                  [org.clojure/clojurescript "1.10.238"]
                  [ring/ring-defaults        "0.3.2"]
                  [ring/ring-core            "1.7.0"]
-                 [http-kit                  "2.3.0"]
+                 [org.immutant/web          "2.1.10"]
                  [com.taoensso/sente        "1.13.1"]]
 
 
@@ -60,9 +60,9 @@
    (cider)
    (serve
     :port    7000
+    :immutant true
     :handler 'fusecode.server.random/app
-    :init 'fusecode.strap/jetty-init
-    :httpkit true)
+    :init 'fusecode.strap/jetty-init)
    (watch)
    (speak)
    (hoplon)
