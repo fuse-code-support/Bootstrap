@@ -59,8 +59,9 @@
   (comp
    (cider)
    (serve
-    :port    7000
+    :port     7000
     :immutant true
+    :ssl      true
     :handler 'fusecode.server.random/app
     :init 'fusecode.strap/jetty-init)
    (watch)
