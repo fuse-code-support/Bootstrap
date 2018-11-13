@@ -19,10 +19,10 @@
  :dependencies '[[org.clojure/clojure       "1.9.0"]
                  [org.clojure/tools.cli     "0.4.1"]
                  [org.clojure/core.async    "0.4.474"]
+                 [coconutpalm/boot-boot     "LATEST" :scope "test"] ; Standard Boot tasks
 
-                 [coconutpalm/boot-boot     "LATEST"]
+                 [coconutpalm/boot-server   "0.9.1"]
                  [clojure-watch             "LATEST"]
-                 [zcaudate/hara             "2.8.7"]
                  [adzerk/boot-cljs          "2.1.4"]
                  [adzerk/boot-reload        "0.6.0"]
                  [samestep/boot-refresh     "0.1.0"]
@@ -50,7 +50,7 @@
  '[adzerk.boot-reload    :refer [reload]]
  '[samestep.boot-refresh :refer [refresh]]
  '[hoplon.boot-hoplon    :refer [hoplon prerender]]
- '[pandeiro.boot-http    :refer [serve]])
+ '[coconutpalm.boot-http :refer [serve]])
 
 
 (deftask web-dev
