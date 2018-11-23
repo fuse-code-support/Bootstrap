@@ -20,7 +20,7 @@
                  [org.clojure/tools.cli     "0.4.1"]
                  [org.clojure/core.async    "0.4.474"]
                  [coconutpalm/boot-boot     "LATEST" :scope "test"] ; Standard Boot tasks
-
+                 
                  [coconutpalm/boot-server   "0.9.1"]
                  [clojure-watch             "LATEST"]
                  [adzerk/boot-cljs          "2.1.4"]
@@ -29,14 +29,15 @@
                  [compojure                 "1.6.1"]
                  [hoplon/hoplon             "7.2.0"]
                  [hoplon/javelin            "3.9.0"]
-
+                 
                  [eval-soup                 "1.4.3"]
                  [paren-soup                "2.12.3"] ; Use to help bootstrap CodeMirror?
-
+                                  
                  [org.clojure/clojurescript "1.10.238"]
                  [ring/ring-defaults        "0.3.2"]
                  [ring/ring-core            "1.7.0"]
                  [org.immutant/web          "2.1.10"]
+                 [com.wsscode/pathom        "2.2.0-RC5"]
                  [com.taoensso/sente        "1.13.1"]]
 
 
