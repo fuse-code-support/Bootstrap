@@ -12,6 +12,9 @@ that happens to implement an awesome programmer's editor and programming environ
 
 ## TODO
 
+* Future
+  * Use https://github.com/benedekfazekas/mranderson for dependency/version isolation
+
 * Tech debt immediate cleanup
   * Make the js loader use the job api  *DONE*
   * Only load js that hasn't already been loaded (keep a set of already-loaded-things)
