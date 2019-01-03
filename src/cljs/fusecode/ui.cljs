@@ -6,10 +6,10 @@
 
 (defc css "")
 
-(defc tab-title 
+(defc tab-title
   (text "Fusecode ~{api/random}"))
 
-(defc body 
+(defc body
   (div :id "inner-remaining" :class "center-div"
          (img :src "/loading.gif")))
 

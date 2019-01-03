@@ -20,25 +20,42 @@
                  [org.clojure/tools.cli     "0.4.1"]
                  [org.clojure/core.async    "0.4.474"]
                  [coconutpalm/boot-boot     "LATEST" :scope "test"] ; Standard Boot tasks
-                 
-                 [coconutpalm/boot-server   "0.9.1"]
+
+                 [coconutpalm/boot-server   "0.9.2"]
                  [clojure-watch             "LATEST"]
                  [adzerk/boot-cljs          "2.1.4"]
                  [adzerk/boot-reload        "0.6.0"]
                  [samestep/boot-refresh     "0.1.0"]
+
+                 ;; web client/server framework
                  [compojure                 "1.6.1"]
                  [hoplon/hoplon             "7.2.0"]
                  [hoplon/javelin            "3.9.0"]
-                 
+
+                 ;; logging
+                 [com.taoensso/timbre       "4.10.0"]
+                 [com.palletops/log-config  "0.1.4"]
+
+                 ;; forward Java logging to Timbre
+                 [org.slf4j/slf4j-api       "1.7.25"]
+                 [com.fzakaria/slf4j-timbre "0.3.12"]
+                 [org.slf4j/log4j-over-slf4j "1.7.14"]
+                 [org.slf4j/jul-to-slf4j    "1.7.14"]
+                 [org.slf4j/jcl-over-slf4j  "1.7.14"]
+
+                 ;; graphql
+                 [com.walmartlabs/lacinia   "0.31.0-rc-1"]
+                 [locksmith                 "0.1.0"]
+
+                 ;; basic auto-eval browser-based editor
                  [eval-soup                 "1.4.3"]
                  [paren-soup                "2.12.3"] ; Use to help bootstrap CodeMirror?
-                                  
+
                  [org.clojure/clojurescript "1.10.238"]
                  [ring/ring-defaults        "0.3.2"]
                  [ring/ring-core            "1.7.0"]
-                 [org.immutant/web          "2.1.10"]
-                 [com.wsscode/pathom        "2.2.0-RC5"]
-                 [com.taoensso/sente        "1.13.1"]]
+                 [org.immutant/web          "2.1.10" :exclusions [ch.qos.logback/logback-classic]]
+                 [com.taoensso/sente        "1.13.1"]] ; websocket support
 
 
  :resource-paths #{(qualify "resources") (qualify "src/clj") (qualify "src/cljc")}
@@ -80,12 +97,12 @@
     [dependencies task & args]
     (fn []
       (pod/make-pod
-         (update-in (b/get-env)
-                    [:dependencies]
-                    (identity [(dep "org.clojure/clojure" "1.9.0")
-                               (dep "boot/core" (:boot-clj-version @config/settings))
-                               (dep "boot/pod" (:boot-clj-version @config/settings))
-                               (dep "boot/worker" (:boot-clj-version @config/settings))])))))
+       (update-in (b/get-env)
+                  [:dependencies]
+                  (identity [(dep "org.clojure/clojure" "1.9.0")
+                             (dep "boot/core" (:boot-clj-version @config/settings))
+                             (dep "boot/pod" (:boot-clj-version @config/settings))
+                             (dep "boot/worker" (:boot-clj-version @config/settings))])))))
 
 
 ;; This is specialized for launching via fusion-boot only

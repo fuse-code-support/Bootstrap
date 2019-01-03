@@ -4,7 +4,7 @@
             [ring.middleware.defaults :as d]
             [ring.util.response :as response]
             [taoensso.sente     :as sente]
-            [taoensso.sente.server-adapters.immutant :refer [get-sch-adapter]]]))
+            [taoensso.sente.server-adapters.immutant :refer [get-sch-adapter]]))
 
 
 ;;;; Server-side setup
