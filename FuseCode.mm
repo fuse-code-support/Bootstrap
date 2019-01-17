@@ -1,51 +1,74 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="FuseCode" FOLDED="false" ID="ID_920082623" CREATED="1546468400759" MODIFIED="1546536668938"><hook NAME="MapStyle">
-    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#000000ff,#ff0033ff,#009933ff,#3333ffff,#ff6600ff,#cc00ccff,#ffbf00ff,#00ff99ff,#0099ffff,#996600ff,#000000ff,#cc0066ff,#33ff00ff,#ff9999ff,#0000ccff,#cccc00ff,#0099ccff,#006600ff,#ff00ccff,#00cc00ff,#0066ccff,#00ffffff"/>
+<node TEXT="FuseCode" FOLDED="false" ID="ID_119077766" CREATED="1547050911026" MODIFIED="1547051098453" STYLE="oval"><hook NAME="MapStyle">
+    <conditional_styles>
+        <conditional_style ACTIVE="true" LOCALIZED_STYLE_REF="styles.connection" LAST="false">
+            <node_periodic_level_condition PERIOD="2" REMAINDER="1"/>
+        </conditional_style>
+        <conditional_style ACTIVE="true" LOCALIZED_STYLE_REF="styles.topic" LAST="false">
+            <node_level_condition VALUE="2" MATCH_CASE="false" MATCH_APPROXIMATELY="false" COMPARATION_RESULT="0" SUCCEED="true"/>
+        </conditional_style>
+        <conditional_style ACTIVE="true" LOCALIZED_STYLE_REF="styles.subtopic" LAST="false">
+            <node_level_condition VALUE="4" MATCH_CASE="false" MATCH_APPROXIMATELY="false" COMPARATION_RESULT="0" SUCCEED="true"/>
+        </conditional_style>
+        <conditional_style ACTIVE="true" LOCALIZED_STYLE_REF="styles.subsubtopic" LAST="false">
+            <node_level_condition VALUE="6" MATCH_CASE="false" MATCH_APPROXIMATELY="false" COMPARATION_RESULT="0" SUCCEED="true"/>
+        </conditional_style>
+    </conditional_styles>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
-<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt" TEXT_SHORTENED="true">
+<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
 <font SIZE="24"/>
-<richcontent TYPE="DETAILS" LOCALIZED_HTML="styles_background_html"/>
 <stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="default" ICON_SIZE="12.0 pt" COLOR="#000000" STYLE="fork">
+<font NAME="Arial" SIZE="10" BOLD="false" ITALIC="false"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.details"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.attributes">
 <font SIZE="9"/>
-<stylenode LOCALIZED_TEXT="default" ICON_SIZE="12.0 pt" COLOR="#000000" STYLE="bubble" SHAPE_VERTICAL_MARGIN="0.0 pt" TEXT_ALIGN="CENTER" MAX_WIDTH="120.0 pt" MIN_WIDTH="120.0 pt">
-<font NAME="Arial" SIZE="9" BOLD="true" ITALIC="false"/>
-<edge STYLE="bezier" WIDTH="3"/>
 </stylenode>
-<stylenode LOCALIZED_TEXT="defaultstyle.details">
-<font SIZE="11" BOLD="false"/>
-</stylenode>
-<stylenode LOCALIZED_TEXT="defaultstyle.attributes" COLOR="#000000" BACKGROUND_COLOR="#ffffff">
-<font SIZE="9" BOLD="false"/>
-</stylenode>
-<stylenode LOCALIZED_TEXT="defaultstyle.note" COLOR="#000000" BACKGROUND_COLOR="#ffffff" TEXT_ALIGN="LEFT">
-<font BOLD="false"/>
-</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.note" COLOR="#000000" BACKGROUND_COLOR="#ffffff" TEXT_ALIGN="LEFT"/>
 <stylenode LOCALIZED_TEXT="defaultstyle.floating">
 <edge STYLE="hide_edge"/>
+<cloud COLOR="#f0f0f0" SHAPE="ROUND_RECT"/>
 </stylenode>
 </stylenode>
 <stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right" STYLE="bubble">
-<font SIZE="9"/>
-<stylenode LOCALIZED_TEXT="styles.important">
-<icon BUILTIN="yes"/>
-<edge COLOR="#0000cc"/>
+<stylenode LOCALIZED_TEXT="styles.topic" COLOR="#18898b" STYLE="fork">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.subtopic" COLOR="#cc3300" STYLE="fork">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.subsubtopic" COLOR="#669900">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.connection" COLOR="#606060" STYLE="fork">
+<font NAME="Arial" SIZE="8" BOLD="false"/>
 </stylenode>
 </stylenode>
 <stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
-<font SIZE="9"/>
-<stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000" STYLE="oval" UNIFORM_SHAPE="true" MAX_WIDTH="120.0 pt" MIN_WIDTH="120.0 pt">
-<font SIZE="24" ITALIC="true"/>
-<edge STYLE="bezier" WIDTH="3"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000" STYLE="oval">
+<font SIZE="18"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,1" COLOR="#0033ff">
+<font SIZE="16"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,2" COLOR="#00b439">
+<font SIZE="14"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,3" COLOR="#990000">
+<font SIZE="12"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,4" COLOR="#111111">
+<font SIZE="10"/>
 </stylenode>
 </stylenode>
 </stylenode>
 </map_styles>
 </hook>
 <hook NAME="accessories/plugins/AutomaticLayout.properties" VALUE="ALL"/>
-<font SIZE="24"/>
-<hook NAME="AutomaticEdgeColor" COUNTER="0" RULE="FOR_COLUMNS"/>
 <node TEXT="Key ideas" POSITION="left" ID="ID_1527776447" CREATED="1546473148799" MODIFIED="1546473153087">
 <node TEXT="Reuse best-of-breed implementations" ID="ID_1984048963" CREATED="1546473153785" MODIFIED="1546473177118"/>
 <node TEXT="Extend the language build tool, don&apos;t replace it" ID="ID_1330002577" CREATED="1546473177780" MODIFIED="1546473200972"/>
@@ -98,7 +121,7 @@
 <node TEXT="How does a plugin inject code into the page?  Init/shutdown protocols?" ID="ID_1649029439" CREATED="1546473534291" MODIFIED="1546473566366"/>
 </node>
 </node>
-<node TEXT="Search all the things" LOCALIZED_STYLE_REF="AutomaticLayout.level,3" ID="ID_1569705306" CREATED="1546464729249" MODIFIED="1546469100664">
+<node TEXT="Search all the things" LOCALIZED_STYLE_REF="AutomaticLayout.level,3" FOLDED="true" ID="ID_1569705306" CREATED="1546464729249" MODIFIED="1546469100664">
 <node TEXT="Search code (e.g.: existing kinds of IDE searches)" ID="ID_461366338" CREATED="1546464740625" MODIFIED="1546464765855"/>
 <node TEXT="Code changes over time" ID="ID_1171178663" CREATED="1546552109533" MODIFIED="1546552114094">
 <node TEXT="Code / author heatmap (e.g.: who do I bug to learn who knows this?)" ID="ID_390309619" CREATED="1546464769102" MODIFIED="1546464879504">
@@ -195,7 +218,10 @@
 <node TEXT="e.g.: Dependencies" ID="ID_53738901" CREATED="1546554448200" MODIFIED="1546554461042"/>
 </node>
 <node TEXT="Graphical-tree-like" ID="ID_16082495" CREATED="1546554400495" MODIFIED="1546554406377">
-<node TEXT="e.g.: Mindmap" ID="ID_27487808" CREATED="1546554407015" MODIFIED="1546554412689"/>
+<node TEXT="e.g.: Mindmap" ID="ID_27487808" CREATED="1546554407015" MODIFIED="1546554412689">
+<node TEXT="XMind SDK" ID="ID_1949945981" CREATED="1547053485386" MODIFIED="1547053515118" LINK="https://github.com/leungwensen/xmind-sdk-javascript" FORMAT_AS_HYPERLINK="true"/>
+</node>
+<node TEXT="D3" ID="ID_1180022978" CREATED="1547054223546" MODIFIED="1547054241390" LINK="https://d3js.org/" FORMAT_AS_HYPERLINK="true"/>
 </node>
 <node TEXT="Textual-tree-like" ID="ID_1801815990" CREATED="1546552785835" MODIFIED="1546554375296">
 <node TEXT="e.g.: Project/package/file" ID="ID_1607310473" CREATED="1546554414919" MODIFIED="1546554440138"/>
@@ -225,6 +251,10 @@
 <node TEXT="Selected things in artifact repositories" ID="ID_1700476868" CREATED="1546553637942" MODIFIED="1546553658936">
 <node TEXT="Maven Central" ID="ID_405238567" CREATED="1546553659359" MODIFIED="1546553662880"/>
 <node TEXT="Artifactory / Ivy" ID="ID_1075908940" CREATED="1546553663039" MODIFIED="1546553683256"/>
+</node>
+<node TEXT="Data mine Github?" ID="ID_1927784109" CREATED="1546638343821" MODIFIED="1546638364807"/>
+<node TEXT="Send usage data?" ID="ID_752419819" CREATED="1546638370254" MODIFIED="1546638393637">
+<node TEXT="Store in S3 or similar DigitalOcean thing?" ID="ID_1624413654" CREATED="1546638405291" MODIFIED="1546638416717"/>
 </node>
 </node>
 </node>
