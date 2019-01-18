@@ -77,7 +77,7 @@
   (comp
    (cider)
    (serve
-    :port     7000
+    :port     7777
     :immutant true
     :ssl      true
     :handler 'fusecode.server.random/app
@@ -87,7 +87,9 @@
    (hoplon)
    (refresh)
    (reload)
-   (repl :server true)
+   (repl
+    :server true
+    :port 9999)
    (cljs)))
 
 
