@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-MAINTAINER David Orme <djo@coconut-palm-software.com>
+LABEL author="David Orme <djo@coconut-palm-software.com>"
 
 RUN apt-get -y update && apt-get -y install openjdk-8-jdk-headless curl
 RUN apt-get -y clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
