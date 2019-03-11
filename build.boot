@@ -20,6 +20,7 @@
                  [org.clojure/tools.cli     "0.4.1"]
                  [org.clojure/core.async    "0.4.474"]
                  [coconutpalm/boot-boot     "LATEST" :scope "test"] ; Standard Boot tasks
+                 [boot/pod                  "2.8.2"]
 
                  [coconutpalm/boot-server   "0.9.2"]
                  [clojure-watch             "LATEST"]
@@ -43,14 +44,10 @@
                  [org.slf4j/jul-to-slf4j    "1.7.14"]
                  [org.slf4j/jcl-over-slf4j  "1.7.14"]
 
-                 ;; graphql
-                 [com.walmartlabs/lacinia   "0.31.0-rc-1"]
-                 [locksmith                 "0.1.0"]
-
                  ;; basic auto-eval browser-based editor
                  [eval-soup                 "1.4.3"]
                  [paren-soup                "2.12.3"] ; Use to help bootstrap CodeMirror?
-
+                 
                  [org.clojure/clojurescript "1.10.238"]
                  [ring/ring-defaults        "0.3.2"]
                  [ring/ring-core            "1.7.0"]
